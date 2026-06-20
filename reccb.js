@@ -1,4 +1,4 @@
-const API_URL_RECCB =
+const API_URL_RECCB=
 "https://script.google.com/macros/s/AKfycbw1_P0uGBM-qEbuEyi8zLN9Vwrqn3EacMXeLm5LEdcP4l7nNcgCV-1nI0hVlnwEdiyr/exec";
 
 async function verifyRECCB(){
@@ -18,7 +18,7 @@ async function verifyRECCB(){
 
    
       const response = await fetch( 
-      `${API_URL}?certNo=${encodeURIComponent(certNo)}` );
+      `${API_URL_RECCB}?certNo=${encodeURIComponent(certNo)}` );
     
 
     const data = await response.json();

@@ -1,5 +1,5 @@
 console.log("PEWP file loaded");
-const API_URL_PEWP =
+const API_URL_PEWP=
 "https://script.google.com/macros/s/AKfycbwsOY1OUDXxhGqtT4DLoMaEn7ONMq_Y1kWtsVa1m2IDebtfb5NDRUNzD38QmyJjimh3/exec";
 
 async function verifyPEWP(){
@@ -19,7 +19,7 @@ async function verifyPEWP(){
 
    
       const response = await fetch( 
-      `${API_URL}?certNo=${encodeURIComponent(certNo)}` );
+      `${API_URL_PEWP}?certNo=${encodeURIComponent(certNo)}` );
     
 
     const data = await response.json();
