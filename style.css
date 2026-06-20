@@ -50,7 +50,13 @@ body::before{
 .title p{
     margin:5px 0;
 }
-
+/* Header text */
+#eventTitle{
+    color: white;
+}
+#eventSubTitle{
+    color: white;
+}
 /* Search Area */
 .search-box{
     text-align:center;
