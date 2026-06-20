@@ -1,3 +1,4 @@
+console.log("PEWP file loaded");
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwsOY1OUDXxhGqtT4DLoMaEn7ONMq_Y1kWtsVa1m2IDebtfb5NDRUNzD38QmyJjimh3/exec";
 
@@ -141,14 +142,7 @@ document.getElementById("result").innerHTML=html;
 
 }
 
-
-{/* <tr>
-  <td>Employee ID</td>
-  <td>${((id) => {
-    const s = String(id);
-    return "*".repeat(s.length - 2) + s.slice(-2);
-})(data.employeeId)}</td>
-</tr> */}
+console.log("verifyPEWP =", typeof verifyPEWP);
 
 
 
