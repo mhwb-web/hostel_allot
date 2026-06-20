@@ -9,7 +9,21 @@ function enableCertificateInput() {
 
 document.getElementById("eventSelect")
 .addEventListener("change", enableCertificateInput);
+document.getElementById("eventSelect") .addEventListener("change", function () {
 
+    const event = this.value;
+
+    const certInput = document.getElementById("certNo");
+
+    certInput.disabled = !event;
+
+    // Clear previous certificate number
+    certInput.value = "";
+
+    // Clear previous verification result
+    document.getElementById("result").innerHTML = "";
+
+  });
 async function verifyCertificate() {
 
     const event =
