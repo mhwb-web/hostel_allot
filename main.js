@@ -2,38 +2,38 @@ const EVENT_DETAILS = {
 
     mhwb: {
 
-        title:
-        "Mental Health & Well-Being (MHWB 2026)",
+        title: "Mental Health & Well-Being (MHWB 2026)",
 
-        logo:
-        "https://lh3.googleusercontent.com/d/1Gb3BDjHimwaItoYwc5Z4aCVxQCUBVAHS",
+        logo: "https://lh3.googleusercontent.com/d/1Gb3BDjHimwaItoYwc5Z4aCVxQCUBVAHS",
 
-        color:
-        "#2E7D32"
+        color: "#2E7D32",
+        headerColor: "#2E7D32"
     },
 
     pewp: {
 
         title:
-        "Pedagogical Excellence & Wellness Program (PEWP 2026)",
+            "Pedagogical Excellence & Wellness Program (PEWP 2026)",
 
         logo:
-        "https://lh3.googleusercontent.com/d/1txoD86Nb06-_fiA0Kwf_nc7WZifo0rUg",
+            "https://lh3.googleusercontent.com/d/1txoD86Nb06-_fiA0Kwf_nc7WZifo0rUg",
 
-        color:
-        "#1565C0"
+        color: "#1565C0",
+        headerColor: "#1565C0"
     },
 
     reccb: {
 
         title:
-        "Research Excellence & Campus Culture Building (RECCB 2026)",
+            "Research Excellence & Campus Culture Building (RECCB 2026)",
 
         logo:
-        "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
+            "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
 
         color:
-        "#606060"
+            "#606060",
+        headerColor: "#606060"
+
     }
 };
 
@@ -47,7 +47,7 @@ function enableCertificateInput() {
 }
 
 function handleEventChange() {
-  console.log("Event Changed");
+    console.log("Event Changed");
 
     const event =
         document.getElementById("eventSelect").value;
@@ -63,6 +63,10 @@ function handleEventChange() {
 
     const header =
         document.getElementById("header");
+    header.classList.remove(
+        "header-mhwb",
+        "header-pewp",
+        "header-reccb")
 
     const certInput =
         document.getElementById("certNo");
@@ -74,25 +78,41 @@ function handleEventChange() {
     certInput.value = "";
     document.getElementById("result").innerHTML = "";
 
-    if(event){
+    if (event) {
 
         const details =
             EVENT_DETAILS[event];
+        
+       
+        if (event === "mhwb") {
+            header.classList.add("header-mhwb");
+        }
+
+        if (event === "pewp") {
+            header.classList.add("header-pewp");
+        }
+
+        if (event === "reccb") {
+            header.classList.add("header-reccb");
+        }
 
         eventTitle.textContent =
             details.title;
 
         eventSubTitle.textContent =
             "Motilal Nehru National Institute of Technology Allahabad";
-
+        eventTitle.style.color = "white";
+        eventSubTitle.style.color = "white";
         eventLogo.src =
             details.logo;
 
         eventLogo.style.display =
             "block";
 
+
         header.style.borderBottom =
             `20px solid ${details.color}`;
+
 
     } else {
 
@@ -107,6 +127,8 @@ function handleEventChange() {
 
         header.style.borderBottom =
             "20px solid #8B4513";
+        eventTitle.style.color = "white";
+        eventSubTitle.style.color = "white";
     }
 }
 // Initialize page
@@ -123,13 +145,13 @@ async function verifyCertificate() {
     const event =
         document.getElementById("eventSelect").value;
 
-    if(!event){
+    if (!event) {
 
         alert("Please select an event");
         return;
     }
 
-    switch(event){
+    switch (event) {
 
         case "mhwb":
             verifyMHWB();
