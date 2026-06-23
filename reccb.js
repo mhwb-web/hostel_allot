@@ -11,8 +11,13 @@ async function verifyRECCB(){
     return;
   }
 
-  document.getElementById("result").innerHTML =
-    '<div class="card">Verifying...</div>';
+  document.getElementById("result").innerHTML = `
+<div class="verify-card">
+    <div class="spinner"></div>
+    <h3>Verifying Certificate</h3>
+    <p>Please wait while we verify your certificate details...</p>
+</div>
+`;
 
   try {
 
