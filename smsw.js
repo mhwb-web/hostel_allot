@@ -1,5 +1,5 @@
 const API_URL_SMSW=
-"https://script.google.com/macros/s/AKfycbw1_P0uGBM-qEbuEyi8zLN9Vwrqn3EacMXeLm5LEdcP4l7nNcgCV-1nI0hVlnwEdiyr/exec";
+"https://script.google.com/macros/s/AKfycbweq4u8vmEf2qFJYlc2V-xiThsYqe_t9-EP4QKYfJtiqP-j-Ax7wf0nbBTA70FflZDH/exec";
 
 async function verifysmsw(){
 
