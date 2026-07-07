@@ -114,7 +114,14 @@ html=`
 <td>${datapewp.role}</td>
 </tr>
 </table>
+<div class="actions">
+<a class="btn btn-warning"
+       href="https://forms.gle/2Q8RaYBvnz8kz5da9"
+       target="_blank">
+        ✏️ Request Certificate Correction
+    </a>
 
+</div>
 <div class="actions">
 <a class="btn"
 href="https://drive.google.com/uc?export=download&id=${datapewp.mergedDocId}"

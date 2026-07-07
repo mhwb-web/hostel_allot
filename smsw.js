@@ -113,7 +113,14 @@ html=`
 <td>${datasmsw.role}</td>
 </tr>
 </table>
+<div class="actions">
+<a class="btn btn-warning"
+       href="https://forms.gle/sBYncq62LJQaY8S3A"
+       target="_blank">
+        ✏️ Request Certificate Correction
+    </a>
 
+</div>
 <div class="actions">
 <a class="btn"
 href="https://drive.google.com/uc?export=download&id=${datasmsw.mergedDocId}"

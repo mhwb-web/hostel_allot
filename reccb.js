@@ -113,7 +113,14 @@ html=`
 <td>${datareccb.role}</td>
 </tr>
 </table>
+<div class="actions">
+<a class="btn btn-warning"
+       href="https://forms.gle/MUeCZiGb2MzJubDX7"
+       target="_blank">
+        ✏️ Request Certificate Correction
+    </a>
 
+</div>
 <div class="actions">
 <a class="btn"
 href="https://drive.google.com/uc?export=download&id=${datareccb.mergedDocId}"
