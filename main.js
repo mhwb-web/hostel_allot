@@ -1,358 +1,342 @@
-const EVENT_DETAILS = {
+/*=====================================================
+ MNNIT Hostel Allotment Portal
+ main.js
+======================================================*/
 
-    mhwb: {
+/*--------------- API URLs ----------------*/
 
-        title: "Mental Health & Well-Being (MHWB 2026)",
+const API_MAP = {
 
-        logo: "https://lh3.googleusercontent.com/d/1Gb3BDjHimwaItoYwc5Z4aCVxQCUBVAHS",
+    boys: {
 
-        color: "#2E7D32",
-        headerColor: "#2E7D32"
-    },
+        second_year: "https://script.google.com/macros/s/AKfycbxjd2ugXBPlkHK5Ds3lwdJB5xT-8uktxroiwfxm_8HFX91H3QAWrtTS46rXreKg1Rjj5g/exec",
 
-    pewp: {
+        third_year: "https://script.google.com/macros/s/AKfycbxcMMTGujrkNFaSWYptV4XepVX5_C-xseksq9TOk-kLm_93oXW0LgB7HV6O3hndZsUd/exec",
 
-        title:
-            "Pedagogical Excellence & Wellness Program (PEWP 2026)",
+        final_year: "https://script.google.com/macros/s/AKfycbxazduf2jww5wwW6I_MkgxSWOKxN95ZmfaxskKs3bwSi0S5pGKLwj8GXJP79zwjxoFflA/exec",
 
-        logo:
-            "https://lh3.googleusercontent.com/d/1txoD86Nb06-_fiA0Kwf_nc7WZifo0rUg",
-
-        color: "#1565C0",
-        headerColor: "#1565C0"
-    },
-
-    reccb: {
-
-        title:
-            "Research Excellence & Campus Culture Building (RECCB 2026)",
-
-        logo:
-            "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
-
-        color:
-            "#606060",
-        headerColor: "#606060"
+        pg: "https://script.google.com/macros/s/AKfycby-CuKn9rQ8P69NUVNDgHI5M8WHT_OyZhTnDWWxWlvHuOgNB-h6AwlTSY92V6WF8mXm/exec"
 
     },
-    smsw: {
 
-        title:
-            "Student Mentoring Skill Workshop (SMSW 2026)",
+    girls: {
 
-        logo:
-            "https://lh3.googleusercontent.com/d/1K40v_xuCoqHWpjlKw4PEH0gUB94FitbE",
+        second_year: "https://script.google.com/macros/s/AKfycbxhPk281tK7xLuh2v6Kdta-DkIWgwIeARAkImQDZXQspd-IaFChP65Swfa5EWF9uR0v/exec",
 
-        color:
-            "#855fec",
-        headerColor: "#6215fc"
+        pg: "https://script.google.com/macros/s/AKfycbxeULur9LmBTqpIDf5IAXqo_eaPpe_r1VdaISHcRjOczmtdX8Ni7iD8Nv4Ut4Jz3vqL/exec"
 
     }
+
 };
 
-function enableCertificateInput() {
 
-    const event =
-        document.getElementById("eventSelect").value;
+/*--------------- HTML Elements ----------------*/
 
-    document.getElementById("certNo").disabled =
-        !event;
-}
+const gender = document.getElementById("gender");
+const year = document.getElementById("year");
+const regNo = document.getElementById("regNo");
+const result = document.getElementById("result");
+const button = document.querySelector("button");
 
-function handleEventChange() {
-    console.log("Event Changed");
+/*--------------- Enable / Disable Registration Box ----------------*/
 
-    const event =
-        document.getElementById("eventSelect").value;
+function updateInputState() {
 
-    const eventTitle =
-        document.getElementById("eventTitle");
+    result.innerHTML = "";
 
-    const eventSubTitle =
-        document.getElementById("eventSubTitle");
+    // Third Year Girls
+    if (gender.value === "girls" && year.value === "third_year") {
 
-    const eventLogo =
-        document.getElementById("eventLogo");
+        regNo.disabled = true;
+        regNo.value = "";
 
-    const header =
-        document.getElementById("header");
-    header.classList.remove(
-        "header-mhwb",
-        "header-pewp",
-        "header-reccb",
-        "header-smsw")
+        button.innerHTML = "View Notice";
 
-    const certInput =
-        document.getElementById("certNo");
-
-    // Enable/Disable certificate field
-    certInput.disabled = !event;
-
-    // Clear previous data
-    certInput.value = "";
-    document.getElementById("result").innerHTML = "";
-
-    if (event) {
-
-        const details =
-            EVENT_DETAILS[event];
-        
-       
-        if (event === "mhwb") {
-            header.classList.add("header-mhwb");
-        }
-
-        if (event === "pewp") {
-            header.classList.add("header-pewp");
-        }
-
-        if (event === "reccb") {
-            header.classList.add("header-reccb");
-        }
-        if (event === "smsw") {
-            header.classList.add("header-smsw");
-        }
-
-        eventTitle.textContent =
-            details.title;
-
-        eventSubTitle.textContent =
-            "Motilal Nehru National Institute of Technology Allahabad";
-        eventTitle.style.color = "white";
-        eventSubTitle.style.color = "white";
-        eventLogo.src =
-            details.logo;
-
-        eventLogo.style.display =
-            "block";
-
-
-        header.style.borderBottom =
-            `20px solid ${details.color}`;
-
-
-    } else {
-
-        eventTitle.textContent =
-            "Event Organized By";
-
-        eventSubTitle.textContent =
-            "Dean (Student & Faculty) Welfare";
-
-        eventLogo.style.display =
-            "none";
-
-        header.style.borderBottom =
-            "20px solid #8B4513";
-        eventTitle.style.color = "white";
-        eventSubTitle.style.color = "white";
-    }
-}
-// Initialize page
-window.onload = function () {
-
-    handleEventChange();
-
-    document
-        .getElementById("eventSelect")
-        .addEventListener("change", handleEventChange);
-};
-async function verifyCertificate() {
-
-    const event =
-        document.getElementById("eventSelect").value;
-
-    if (!event) {
-
-        alert("Please select an event");
         return;
     }
 
-    switch (event) {
+    // Final Year Girls
+    if (gender.value === "girls" && year.value === "final_year") {
 
-        case "mhwb":
-            verifyMHWB();
-            break;
+        regNo.disabled = true;
+        regNo.value = "";
 
-        case "pewp":
-            verifyPEWP();
-            break;
+        button.innerHTML = "View Notice";
 
-        case "reccb":
-            verifyRECCB();
-            break;
-        case "smsw":
-            verifysmsw();
-            break;
-
-    }
-}
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-function enableCertificateInput() {
-
-    const event =
-        document.getElementById("eventSelect").value;
-
-    document.getElementById("certNo").disabled =
-        !event;
-}
-
-document.getElementById("eventSelect")
-.addEventListener("change", enableCertificateInput);
-document.getElementById("eventSelect") .addEventListener("change", function () {
-
-    const event = this.value;
-
-    const certInput = document.getElementById("certNo");
-
-    certInput.disabled = !event;
-
-    // Clear previous certificate number
-    certInput.value = "";
-
-    // Clear previous verification result
-    document.getElementById("result").innerHTML = "";
-
-  });
-
-function handleEventChange() {
-
-    const event =
-        document.getElementById("eventSelect").value;
-
-    const eventTitle =
-        document.getElementById("eventTitle");
-
-    const eventSubTitle =
-        document.getElementById("eventSubTitle");
-
-    const eventLogo =
-        document.getElementById("eventLogo");
-
-    const header =
-        document.getElementById("header");
-
-    // Clear old data
-    document.getElementById("certNo").value = "";
-    document.getElementById("result").innerHTML = "";
-
-    if(event){
-
-        const details =
-            EVENT_DETAILS[event];
-
-        eventTitle.textContent =
-            details.title;
-
-        eventSubTitle.textContent =
-            "Motilal Nehru National Institute of Technology Allahabad";
-
-        eventLogo.src =
-            details.logo;
-
-        eventLogo.style.display =
-            "block";
-
-        header.style.borderBottom =
-            `5px solid ${details.color}`;
-
-    } else {
-
-        eventTitle.textContent =
-            "Event Organized By";
-
-        eventSubTitle.textContent =
-            "Dean (Student & Faculty) Welfare";
-
-        eventLogo.style.display =
-            "none";
-
-        header.style.borderBottom =
-            "5px solid #8B4513";
-    }
-
-    document.getElementById("certNo").disabled =
-        !event;
-}
-
-async function verifyCertificate() {
-
-    const event =
-        document.getElementById("eventSelect").value;
-
-    if(!event){
-
-        alert("Please select an event");
         return;
     }
 
+    if (gender.value && year.value) {
 
-const EVENT_DETAILS = {
+        regNo.disabled = false;
 
-    mhwb: {
+        button.innerHTML = "Check Allotment";
 
-        title:
-        "Mental Health & Well-Being (MHWB 2026)",
-
-        logo:
-        "https://your-mhwb-logo-link.png",
-
-        color:
-        "#2E7D32"
-    },
-
-    pewp: {
-
-        title:
-        "Pedagogical Excellence & Wellness Program (PEWP 2026)",
-
-        logo:
-        "https://drive.google.com/file/d/1txoD86Nb06-_fiA0Kwf_nc7WZifo0rUg/view?usp=drive_link",
-
-        color:
-        "#1565C0"
-    },
-
-    reccb: {
-
-        title:
-        "Research Excellence & Campus Culture Building (RECCB 2026)",
-
-        logo:
-        "https://drive.google.com/file/d/11udDEFrrTaCF-R2qWL-GbL_cRBJPTDFr/view?usp=drive_link",
-
-        color:
-        "#606060"
     }
-};
 
+    else {
 
+        regNo.disabled = true;
 
-    switch(event){
+        regNo.value = "";
 
-        case "mhwb":
-            verifyMHWB();
-            break;
+        button.innerHTML = "Check Allotment";
 
-        case "pewp":
-            verifyPEWP();
-            break;
-
-        case "reccb":
-            verifyRECCB();
-            break;
     }
-}  
-*/
+
+}
+
+gender.addEventListener("change", updateInputState);
+
+year.addEventListener("change", updateInputState);
+
+
+/*--------------- Enter Key ----------------*/
+
+regNo.addEventListener("keypress", function(e){
+
+    if(e.key==="Enter"){
+
+        verifyCertificate();
+
+    }
+
+});
+/*=====================================================
+    Main Function
+======================================================*/
+
+async function verifyCertificate() {
+
+    const selectedGender = gender.value;
+    const selectedYear = year.value;
+    const registration = regNo.value.trim();
+
+    result.innerHTML = "";
+
+    /* ---------- Special Case : Girls Third Year ---------- */
+
+    if (selectedGender === "girls" && selectedYear === "third_year") {
+
+        result.innerHTML = `
+            <div class="result-card">
+
+                <h2>Important Notice</h2>
+
+                <p>
+                    <strong>
+                    All Third Year Girl students are required to report to
+                    Kamla Nehru Girls Hostel (KNGH).
+                    </strong>
+                </p>
+
+                <p>
+                    Hostel allotment will be completed during reporting
+                    at KNGH.
+                </p>
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+    /* ---------- Special Case : Girls Final Year ---------- */
+
+    if (selectedGender === "girls" && selectedYear === "final_year") {
+
+        result.innerHTML = `
+            <div class="result-card">
+
+                <h2>Important Notice</h2>
+
+                <p>
+                    <strong>
+                    All Final Year Girl students are required to report to
+                    Kamla Nehru Girls Hostel (KNGH).
+                    </strong>
+                </p>
+
+                <p>
+                    Hostel allotment will be completed during reporting
+                    at KNGH.
+                </p>
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+    /* ---------- Validation ---------- */
+
+    if (!selectedGender) {
+
+        alert("Please select Gender.");
+
+        return;
+
+    }
+
+    if (!selectedYear) {
+
+        alert("Please select Year.");
+
+        return;
+
+    }
+
+    if (registration === "") {
+
+        alert("Please enter Registration Number.");
+
+        regNo.focus();
+
+        return;
+
+    }
+
+    const api = API_MAP[selectedGender][selectedYear];
+
+    if (!api) {
+
+        result.innerHTML = `
+            <div class="error-card">
+                API Not Configured
+            </div>
+        `;
+
+        return;
+
+    }
+
+    /* ---------- Loading ---------- */
+
+    result.innerHTML = `
+        <div class="loading">
+
+            <h3>Searching Hostel Allotment...</h3>
+
+        </div>
+    `;
+
+    try {
+
+        const response = await fetch(
+            `${api}?regNo=${encodeURIComponent(registration)}`
+        );
+
+        if (!response.ok) {
+
+            throw new Error("Network Error");
+
+        }
+
+        const data = await response.json();
+
+        displayResult(data);
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        result.innerHTML = `
+
+            <div class="error-card">
+
+                <h2>Connection Failed</h2>
+
+                <p>
+
+                    Unable to connect to the server.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/*=====================================================
+    Display Result
+======================================================*/
+
+function displayResult(data) {
+
+    // Student not found
+    if (data.status !== "success") {
+
+        result.innerHTML = `
+            <div class="error-card">
+
+                <h2>Registration Number Not Found</h2>
+
+                <p>
+                    Please check your Registration Number and try again.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    /* Optional Row (Roommate / Single Seater / Double Seater etc.) */
+
+    let roommateRow = "";
+
+    if (data.roommate && data.roommate.trim() !== "") {
+
+        roommateRow = `
+            <tr>
+
+                <th>Room Details</th>
+
+                <td>${data.roommate}</td>
+
+            </tr>
+        `;
+
+    }
+
+    result.innerHTML = `
+
+        <div class="result-card">
+
+            <h2>Hostel Allotment Details</h2>
+
+            <table class="result-table">
+
+                <tr>
+
+                    <th>Registration No.</th>
+
+                    <td>${data.registration}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Hostel Allotted</th>
+
+                    <td>${data.hostel}</td>
+
+                </tr>
+
+                ${roommateRow}
+
+            </table>
+
+        </div>
+
+    `;
+
+}

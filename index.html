@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>MNNIT Certificate Verification Portal</title>
+<title>MNNIT Hostel Allotment</title>
 
 
 <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
     <!-- Dynamic Event Title -->
     <div class="title">
 
-        <h1>Certificate Verification Portal</h1>
+        <h1>Hostel Allotment</h1>
 
         <p id="eventTitle">
             Select an Event
@@ -33,13 +33,6 @@
             Select an Event
         </p>
     </div>
-
-    <!-- Dynamic Event Logo -->
-    <img
-        id="eventLogo"
-        class="logo"
-        src=""
-        style="display:none">
 
 </div>  
 
@@ -59,37 +52,34 @@
 <!-- Search -->
 <div class="search-box">
 
-<h2>Verify Your Certificate</h2> 
+<h2>Check Hostel Allotment</h2>
 
 
-<select id="eventSelect">
-    <option value="">Select Event</option>
+<label for="gender">Gender</label>
+<select id="gender" name="gender" required>
+    <option value="" selected disabled>Select Gender</option>
+    <option value="boys">Boys</option>
+    <option value="girls">Girls</option>
+</select>
 
-    <option value="mhwb">
-        Mental Health & Well-Being (MHWB 2026)
-    </option>
+<br><br>
 
-    <option value="pewp">
-        Pedagogical Excellence & Wellness Program (PEWP 2026)
-    </option>
-
-    <option value="reccb">
-        Research Excellence & Campus Culture Building (RECCB 2026)
-    </option>
-
-    <option value="smsw">
-        Student Mentoring Skill Workshop (SMSW 2026)
-    </option>
+<label for="year">Year</label>
+<select id="year" name="year" required>
+    <option value="" selected disabled>Select Year</option>
+    <option value="second_year">Second Year</option>
+    <option value="third_year">Third Year</option>
+    <option value="final_year">Final Year</option>
+    <option value="pg">Post Graduation</option>
 </select>
 
 <input
     type="text"
-    id="certNo"
-    placeholder="Enter Certificate Number"
-    disabled>
+    id="regNo"
+    placeholder="Enter Registration Number">
 
 <button onclick="verifyCertificate()">
-    Verify
+    Check Allotment
 </button>
 
 </div>
@@ -97,15 +87,10 @@
 <div id="result"></div>
 
 <div class="footer">
-© 2026 Dean (Student Welfare) Office | MNNIT Allahabad
+© 2026 Chief Warden Office | MNNIT Allahabad
 </div>
 
-<script src="mhwb.js"></script>
-<script src="pewp.js"></script>
-<script src="reccb.js"></script>
-<script src="smsw.js"></script>
 <script src="main.js"></script>
-
 
 </body>
 </html>
