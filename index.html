@@ -1,96 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>MNNIT Hostel Allotment</title>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>MNNIT Hostel Allotment Portal</title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
- <!--Header Modified --> 
- <div class="header" id="header">
 
-    <!-- Left Logo (MNNIT fixed) -->
-    <img class="logo"
-         src="https://lh3.googleusercontent.com/d/1uLcGZj-m_R4fj0hGs8u-WDtsU4NRDNap">
+    <!-- Header -->
 
-    <!-- Dynamic Event Title -->
-    <div class="title">
+    <header class="header">
 
-        <h1>Hostel Allotment</h1>
+        <img class="logo"
+            src="https://lh3.googleusercontent.com/d/1uLcGZj-m_R4fj0hGs8u-WDtsU4NRDNap"
+            alt="MNNIT Logo">
 
-        <p id="eventTitle">
-            Select an Event
-        </p>
-        <p id="eventSubTitle">
-            Select an Event
-        </p>
-    </div>
+        <div class="title">
 
-</div>  
+            <h1>Hostel Allotment Portal</h1>
 
-<!-- Header 
-<div class="header">
+            <p>Chief Warden Office</p>
 
-<img class="logo" src="https://lh3.googleusercontent.com/d/1uLcGZj-m_R4fj0hGs8u-WDtsU4NRDNap">
+            <p>Motilal Nehru National Institute of Technology Allahabad</p>
 
-<div class="title">
-<h1>Certificate Verification Portal</h1>
-<p>Event Organized By ( Dean Student & Faculty ) Welfare</p>
-<p>Motilal Nehru National Institute of Technology Allahabad</p>
-</div>
+        </div>
 
-</div> -->
-
-<!-- Search -->
-<div class="search-box">
-
-<h2>Check Hostel Allotment</h2>
+    </header>
 
 
-<label for="gender">Gender</label>
-<select id="gender" name="gender" required>
-    <option value="" selected disabled>Select Gender</option>
-    <option value="boys">Boys</option>
-    <option value="girls">Girls</option>
-</select>
+    <!-- Main Section -->
 
-<br><br>
+    <main class="main-container">
 
-<label for="year">Year</label>
-<select id="year" name="year" required>
-    <option value="" selected disabled>Select Year</option>
-    <option value="second_year">Second Year</option>
-    <option value="third_year">Third Year</option>
-    <option value="final_year">Final Year</option>
-    <option value="pg">Post Graduation</option>
-</select>
+        <div class="search-box">
 
-<input
-    type="text"
-    id="regNo"
-    placeholder="Enter Registration Number">
+            <h2>Check Hostel Allotment</h2>
 
-<button onclick="verifyCertificate()">
-    Check Allotment
-</button>
+            <div class="form-group">
 
-</div>
-<!--this div area for the result of the MHWB-->
-<div id="result"></div>
+                <label for="gender">Gender</label>
 
-<div class="footer">
-© 2026 Chief Warden Office | MNNIT Allahabad
-</div>
+                <select id="gender">
 
-<script src="main.js"></script>
+                    <option value="" selected disabled>Select Gender</option>
+
+                    <option value="boys">Boys</option>
+
+                    <option value="girls">Girls</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="year">Year</label>
+
+                <select id="year">
+
+                    <option value="" selected disabled>Select Year</option>
+
+                    <option value="second_year">Second Year</option>
+
+                    <option value="third_year">Third Year</option>
+
+                    <option value="final_year">Final Year</option>
+
+                    <option value="pg">Post Graduation</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="regNo">
+
+                    Registration Number
+
+                </label>
+
+                <input
+                    type="text"
+                    id="regNo"
+                    placeholder="Enter Registration Number"
+                    disabled>
+
+            </div>
+
+            <button onclick="verifyCertificate()">
+
+                Check Allotment
+
+            </button>
+
+        </div>
+
+
+        <!-- Result -->
+
+        <div id="result"></div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 Chief Warden Office |
+        Motilal Nehru National Institute of Technology Allahabad
+
+    </footer>
+
+    <script src="main.js"></script>
 
 </body>
+
 </html>
