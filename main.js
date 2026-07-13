@@ -298,7 +298,7 @@ function displayResult(data) {
         roommateRow = `
             <tr>
 
-                <th>Details</th>
+                <th>Roommate/Name/Detail</th>
 
                 <td>${data.roommate}</td>
 
